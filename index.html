@@ -3,41 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Danilshs - Tienda Deportiva</title>
+  <title>Danilshs - Tienda de Tenis y Artículos Deportivos</title>
   <style>
+    /* Estilos básicos */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f5f5f5;
     }
-
-    header {
-      background-color: #111;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    h1, h2, h3 {
+      color: #333;
     }
-
-    header h1 {
-      margin: 0;
+    /* Estilos para el logo */
+    h1 {
       font-size: 2em;
-      letter-spacing: 2px;
+      font-weight: bold;
+      color: #222;
     }
-
-    nav {
-      background-color: #222;
-      padding: 10px;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
+    h1 span {
       font-weight: bold;
     }
-
+    h1 .D {
+      color: #E91E63;
+    }
+    h1 .S {
+      color: #3F51B5;
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .navigation {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      padding: 10px;
+    }
+    .navigation a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .navigation a:hover {
+      background-color: #555;
+    }
     .section {
       padding: 20px;
       background-color: white;
@@ -45,24 +58,20 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
-    h2, h3 {
-      color: #333;
+    .search-bar {
+      margin-bottom: 20px;
     }
-
     .search-bar input {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
-
     .product {
       background-color: #fff;
       border-radius: 8px;
@@ -70,37 +79,31 @@
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
     .product img {
       width: 100%;
       max-height: 200px;
       object-fit: contain;
       margin-bottom: 10px;
     }
-
     .product h3 {
       font-size: 1.2em;
       margin: 10px 0;
     }
-
     .product p {
       font-size: 0.9em;
       margin-bottom: 10px;
     }
-
     .product button {
       padding: 10px;
-      background-color: #111;
+      background-color: #333;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
     }
-
     .product button:hover {
-      background-color: #333;
+      background-color: #555;
     }
-
     .comments textarea {
       width: 100%;
       height: 100px;
@@ -109,22 +112,20 @@
       border: 1px solid #ccc;
       margin-bottom: 10px;
     }
-
-    footer {
-      background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+    .comments select {
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
     }
-
-    footer p, footer a {
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
       color: white;
-      margin: 5px;
-      text-decoration: none;
     }
   </style>
   <script>
+    // Función para filtrar productos por nombre
     function filtrarProductos() {
       let busqueda = document.getElementById('busqueda').value.toLowerCase();
       let productos = document.querySelectorAll('.product');
@@ -141,17 +142,20 @@
 </head>
 <body>
 
-  <header>
-    <h1>Danilshs</h1>
-    <p>Tu tienda de tenis y artículos deportivos de confianza</p>
-  </header>
+  <!-- Encabezado -->
+  <div class="header">
+    <h1>Danilshs <span class="D">D</span><span class="S">S</span></h1>
+  </div>
 
-  <nav>
+  <!-- Barra de navegación -->
+  <div class="navigation">
     <a href="#catalogo">Catálogo</a>
-    <a href="#comentarios">Opiniones</a>
+    <a href="#sobre-nosotros">Sobre Nosotros</a>
+    <a href="#ofertas">Ofertas</a>
     <a href="#contacto">Contacto</a>
-  </nav>
+  </div>
 
+  <!-- Sección de catálogo -->
   <section class="section" id="catalogo">
     <h2>Catálogo Destacado</h2>
     <div class="search-bar">
@@ -160,58 +164,58 @@
     <div class="products">
       <!-- Producto 1 -->
       <div class="product">
-        <img src="file:///C:/Users/itzdi/Downloads/lebron21.png" alt="LeBron 21">
+        <img src="https://via.placeholder.com/200" alt="Tenis ejemplo 1">
         <h3>LeBron 21</h3>
         <p>Tenis de alto rendimiento diseñados con materiales reciclados y detalles futuristas.</p>
         <p><strong>$4,299 MXN</strong></p>
         <p><em>Popular</em></p>
         <button>Agregar al carrito</button>
       </div>
-
       <!-- Producto 2 -->
       <div class="product">
-        <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/0c03b22e-b92f-4a2f-bd1b-942f7e05be47/air-max-90-se-shoes-VK63s9.png" alt="Air Max 90 SE">
+        <img src="https://via.placeholder.com/200" alt="Tenis ejemplo 2">
         <h3>Air Max 90 SE</h3>
         <p>Icónicos y cómodos para el uso diario. Diseño retro con tecnología moderna.</p>
         <p><strong>$3,199 MXN</strong></p>
         <p><em>Más vendido</em></p>
         <button>Agregar al carrito</button>
       </div>
-
-      <!-- Producto 3 -->
-      <div class="product">
-        <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/b48b1c6d-11ed-4065-8adf-8b939727ae46/air-jordan-1-retro-high-og-mens-shoes-nzL4hr.png" alt="Air Jordan 1 OG Limitado">
-        <h3>Air Jordan 1 OG - Edición Limitada</h3>
-        <p>Lanzamiento exclusivo, disponible por tiempo limitado. Inspirado en los clásicos de Michael Jordan.</p>
-        <p><strong>$5,599 MXN</strong></p>
-        <p><em>Edición limitada</em></p>
-        <button>Agregar al carrito</button>
-      </div>
-
-      <!-- Producto 4 -->
-      <div class="product">
-        <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/8b8a3609-446e-41f7-880f-74c90538c1fa/air-zoom-victory-tour-3-nrg-golf-shoes-DC5w2d.png" alt="Zoom Victory Tour 3">
-        <h3>Zoom Victory Tour 3</h3>
-        <p>Perfectos para golfistas que buscan máximo control y comodidad.</p>
-        <p><strong>$4,000 MXN</strong></p>
-        <p><em>Recomendado</em></p>
-        <button>Agregar al carrito</button>
-      </div>
     </div>
   </section>
 
-  <section class="section comments" id="comentarios">
-    <h3>Comentarios de clientes</h3>
+  <!-- Sección sobre nosotros -->
+  <section class="section" id="sobre-nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>Danilshs es una tienda dedicada a ofrecer los mejores tenis y artículos deportivos de alta calidad para todos los deportistas.</p>
+  </section>
+
+  <!-- Sección de ofertas -->
+  <section class="section" id="ofertas">
+    <h2>Ofertas Especiales</h2>
+    <p>¡No te pierdas nuestras ofertas! Visita regularmente para obtener descuentos y promociones exclusivas.</p>
+  </section>
+
+  <!-- Sección de comentarios -->
+  <section class="section" id="contacto">
+    <h2>Comentarios de Clientes</h2>
     <textarea placeholder="Escribe tu opinión sobre nuestros productos..."></textarea>
+    <br>
+    <label for="rating">Calificación:</label>
+    <select id="rating">
+      <option value="5">⭐⭐⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="1">⭐</option>
+    </select>
     <br>
     <button>Enviar comentario</button>
   </section>
 
-  <footer id="contacto">
-    <p>© 2025 Danilshs. Todos los derechos reservados.</p>
-    <p>Contacto: contacto@danilshs.com</p>
-    <p>Síguenos en <a href="https://instagram.com/dani_q.s" target="_blank">Instagram @dani_q.s</a></p>
-  </footer>
+  <!-- Pie de página -->
+  <div class="footer">
+    <p>Síguenos en Instagram: <a href="https://www.instagram.com/dani_q.s" target="_blank" style="color: #fff;">@dani_q.s</a></p>
+  </div>
 
 </body>
 </html>
