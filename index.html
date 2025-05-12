@@ -69,7 +69,7 @@
     }
     .products {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Cambié para que sea más responsivo */
       gap: 20px;
     }
     .product {
@@ -78,6 +78,10 @@
       padding: 15px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease; /* Efecto de animación al pasar el cursor */
+    }
+    .product:hover {
+      transform: scale(1.05); /* Aumenta el tamaño al pasar el cursor */
     }
     .product img {
       width: 100%;
@@ -180,25 +184,26 @@
         <p><em>Más vendido</em></p>
         <button>Agregar al carrito</button>
       </div>
-<!-- Producto 3 -->
-<div class="product">
-  <img src="img/airmax6.jpg" alt="Tenis Nike Air Max Alpha Trainer 6">
-  <h3>Tenis Nike Air Max Alpha Trainer 6</h3>
-  <p>Tenis de entrenamiento para alto rendimiento, con excelente soporte y amortiguación.</p>
-  <p><strong>$3,499 MXN</strong></p>
-  <p><em>Popular</em></p>
-  <button>Agregar al carrito</button>
-</div>
-
-<!-- Producto 4 -->
-<div class="product">
-  <img src="img/WMNS-AIR-JORDAN-1-LOW.png" alt="Tenis para mujer Air Jordan 1 Low">
-  <h3>Tenis para mujer Air Jordan 1 Low</h3>
-  <p>Estilo clásico con detalles modernos, perfectos para un look deportivo y elegante.</p>
-  <p><strong>$3,299 MXN</strong></p>
-  <p><em>Más vendido</em></p>
-  <button>Agregar al carrito</button>
-</div>
+      <!-- Producto 3 -->
+      <div class="product">
+        <img src="img/airmax6.jpg" alt="Tenis Nike Air Max Alpha Trainer 6">
+        <h3>Tenis Nike Air Max Alpha Trainer 6</h3>
+        <p>Tenis de entrenamiento para alto rendimiento, con excelente soporte y amortiguación.</p>
+        <p><strong>$3,499 MXN</strong></p>
+        <p><em>Popular</em></p>
+        <button>Agregar al carrito</button>
+      </div>
+      <!-- Producto 4 -->
+      <div class="product">
+        <img src="img/WMNS-AIR-JORDAN-1-LOW.png" alt="Tenis para mujer Air Jordan 1 Low">
+        <h3>Tenis para mujer Air Jordan 1 Low</h3>
+        <p>Estilo clásico con detalles modernos, perfectos para un look deportivo y elegante.</p>
+        <p><strong>$3,299 MXN</strong></p>
+        <p><em>Más vendido</em></p>
+        <button>Agregar al carrito</button>
+      </div>
+    </div>
+  </section>
 
   <!-- Sección sobre nosotros -->
   <section class="section" id="sobre-nosotros">
@@ -234,5 +239,4 @@
     <p>Síguenos en Instagram: <a href="https://www.instagram.com/dani_q.s" target="_blank" style="color: #fff;">@dani_q.s</a></p>
   </div>
 
-</body>
-</html>
+
