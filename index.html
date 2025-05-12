@@ -3,18 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda de Tenis y Artículos Deportivos</title>
+  <title>Danilshs - Tienda Deportiva</title>
   <style>
-    /* Estilos básicos */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f5f5f5;
     }
-    h2, h3 {
-      color: #333;
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
     .section {
       padding: 20px;
       background-color: white;
@@ -22,21 +45,24 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    .search-bar {
-      margin-bottom: 20px;
+
+    h2, h3 {
+      color: #333;
     }
+
     .search-bar input {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      box-sizing: border-box;
     }
+
     .products {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
+
     .product {
       background-color: #fff;
       border-radius: 8px;
@@ -44,32 +70,37 @@
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     .product img {
       width: 100%;
       max-height: 200px;
       object-fit: contain;
       margin-bottom: 10px;
     }
+
     .product h3 {
       font-size: 1.2em;
       margin: 10px 0;
     }
+
     .product p {
       font-size: 0.9em;
       margin-bottom: 10px;
     }
+
     .product button {
       padding: 10px;
-      background-color: #333;
+      background-color: #111;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
+
     .product button:hover {
-      background-color: #555;
+      background-color: #333;
     }
+
     .comments textarea {
       width: 100%;
       height: 100px;
@@ -78,70 +109,58 @@
       border: 1px solid #ccc;
       margin-bottom: 10px;
     }
+
     .comments select {
       padding: 5px;
       border-radius: 4px;
       border: 1px solid #ccc;
     }
 
-    /* Estilos para responsividad */
-    @media (max-width: 768px) {
-      .products {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .products {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Estilos del pie de página */
     footer {
-      background-color: #333;
+      background-color: #111;
       color: white;
       text-align: center;
-      padding: 20px 0;
-      position: relative;
-      bottom: 0;
-      width: 100%;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 5px;
     }
   </style>
   <script>
-    // Función para filtrar productos por nombre
     function filtrarProductos() {
       let busqueda = document.getElementById('busqueda').value.toLowerCase();
       let productos = document.querySelectorAll('.product');
-      let encontrado = false;
-      
       productos.forEach(producto => {
         let nombre = producto.querySelector('h3').textContent.toLowerCase();
         if (nombre.includes(busqueda)) {
           producto.style.display = '';
-          encontrado = true;
         } else {
           producto.style.display = 'none';
         }
       });
-
-      // Mostrar mensaje si no se encuentran productos
-      let mensajeNoResultados = document.getElementById('mensaje-no-resultados');
-      if (!encontrado) {
-        mensajeNoResultados.style.display = 'block';
-      } else {
-        mensajeNoResultados.style.display = 'none';
-      }
     }
   </script>
 </head>
 <body>
+
+  <header>
+    <h1>Danilshs</h1>
+    <p>Tu tienda de tenis y artículos deportivos de confianza</p>
+  </header>
+
+  <nav>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#comentarios">Opiniones</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
   <section class="section" id="catalogo">
     <h2>Catálogo Destacado</h2>
     <div class="search-bar">
       <input type="text" id="busqueda" placeholder="Buscar productos..." onkeyup="filtrarProductos()">
     </div>
-    <div id="mensaje-no-resultados" style="display: none; color: red;">No se encontraron productos que coincidan con tu búsqueda.</div>
     <div class="products">
       <!-- Producto 1 -->
       <div class="product">
@@ -183,26 +202,30 @@
         <button>Agregar al carrito</button>
       </div>
     </div>
-
-    <div class="comments">
-      <h3>Comentarios de clientes</h3>
-      <textarea placeholder="Escribe tu opinión sobre nuestros productos..."></textarea>
-      <br>
-      <label for="rating">Calificación:</label>
-      <select id="rating">
-        <option value="5">⭐⭐⭐⭐⭐</option>
-        <option value="4">⭐⭐⭐⭐</option>
-        <option value="3">⭐⭐⭐</option>
-        <option value="2">⭐⭐</option>
-        <option value="1">⭐</option>
-      </select>
-      <br>
-      <button>Enviar comentario</button>
-    </div>
   </section>
 
-  <footer>
-    <p>© 2025 Tienda de Tenis y Artículos Deportivos | Contacto: contacto@tiendadeportiva.com</p>
+  <section class="section comments" id="comentarios">
+    <h3>Comentarios de clientes</h3>
+    <textarea placeholder="Escribe tu opinión sobre nuestros productos..."></textarea>
+    <br>
+    <label for="rating">Calificación:</label>
+    <select id="rating">
+      <option value="5">⭐⭐⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="1">⭐</option>
+    </select>
+    <br>
+    <button>Enviar comentario</button>
+  </section>
+
+  <footer id="contacto">
+    <p>© 2025 Danilshs. Todos los derechos reservados.</p>
+    <p>Contacto: contacto@danilshs.com</p>
+    <p>Síguenos en redes sociales: @danilshs</p>
   </footer>
+
 </body>
 </html>
+
